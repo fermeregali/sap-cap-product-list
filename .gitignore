@@ -1,0 +1,49 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# CDS
+gen/
+
+# Configuração de IDEs
+.vscode/
+*.code-workspace
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Arquivos do BAS
+*.devcontainer/
+.env/
+
+# Logs e dados temporários
+*.log
+*.tmp
+*.swp
+.DS_Store
+
+# Configurações de builds
+dist/
+out/
+build/
+coverage/
+*.tsbuildinfo
+
+# Arquivos gerados do CF e Deploy
+.mta.json
+.mtar
+.deploy/
+
+# Outros
+package-lock.json
+.env
+.env.*
+
+# Ignorar binários ou resultados de testes
+*.exe
+*.test
+*.out
+*.spec.js
+*.spec.ts

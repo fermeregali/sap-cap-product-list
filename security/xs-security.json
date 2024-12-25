@@ -1,0 +1,34 @@
+{
+    "xsappname": "product-list",
+    "tenant-mode": "dedicated",
+    "scopes": [
+      {
+        "name": "$XSAPPNAME.read",
+        "description": "Grants permission to read the list of products."
+      }
+    ],
+    "role-templates": [
+      {
+        "name": "Viewer",
+        "description": "Role template allowing users to view products.",
+        "scope-references": [
+          "$XSAPPNAME.read"
+        ]
+      }
+    ],
+    "role-collections": [
+      {
+        "name": "ProductListViewer",
+        "description": "Role collection for product list viewers.",
+        "role-template-references": [
+          "$XSAPPNAME.Viewer"
+        ]
+      }
+    ],
+    "oauth2-configuration": {
+      "redirect-uris": [
+        "https://approuter-product-list-ap25.cfapps.br10.hana.ondemand.com/login/callback"
+      ]
+    }
+  }
+  
