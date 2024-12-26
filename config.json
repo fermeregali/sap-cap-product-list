@@ -1,0 +1,10 @@
+{
+    "xsappname":"product-list",
+    "appUrls": {
+      "onSubscription" : "https://product-list-ap25.cfapps.br10.hana.ondemand.com/callback/v1.0/tenants/{tenantId}"
+    },
+    "displayName" : "Product List MTA",
+    "description" : "Product list MTA sample application",
+    "category" : "Custom SaaS Applications"
+  }
+  

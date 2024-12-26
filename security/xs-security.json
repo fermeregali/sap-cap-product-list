@@ -1,11 +1,18 @@
 {
     "xsappname": "product-list",
-    "tenant-mode": "dedicated",
+    "tenant-mode": "shared",
     "scopes": [
       {
-        "name": "$XSAPPNAME.read",
-        "description": "Grants permission to read the list of products."
-      }
+  			"name": "$XSAPPNAME.read",
+  			"description": "With this scope, USER can read products."
+  		},
+  		{
+  			"name": "$XSAPPNAME.Callback",
+  			"description": "With this scope set, the callbacks for tenant onboarding, offboarding and getDependencies can be called.",
+  			"grant-as-authority-to-apps": [
+  				"$XSAPPNAME(application,sap-provisioning,tenant-onboarding)"
+  			]
+  		}
     ],
     "role-templates": [
       {
@@ -25,10 +32,9 @@
         ]
       }
     ],
-    "oauth2-configuration": {
-      "redirect-uris": [
-        "https://approuter-product-list-ap25.cfapps.br10.hana.ondemand.com/login/callback"
-      ]
+    "oauth2-configuration":
+    {        
+      "redirect-uris": ["https://*approuter-product-list-ap25.cfapps.br10.hana.ondemand.com/login/callback"]                
     }
   }
   

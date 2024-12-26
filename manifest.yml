@@ -11,6 +11,7 @@ applications:
   timeout: 180
   services:
     - xsuaa-service-tutorial
+    - saas-registry-tutorial
 
 # Application Router
 - name: approuter
@@ -22,6 +23,7 @@ applications:
   memory: 128M
   services:
     - xsuaa-service-tutorial
+    
   env:
     destinations: >
       [
@@ -29,3 +31,4 @@ applications:
          "url":"https://product-list-ap25.cfapps.br10.hana.ondemand.com",
          "forwardAuthToken": true}
       ]
+    TENANT_HOST_PATTERN: "^(.*)-approuter-product-list-ap25.cfapps.br10.hana.ondemand.com"

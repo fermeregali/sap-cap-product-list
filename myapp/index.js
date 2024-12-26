@@ -6,6 +6,8 @@ const { getProducts, getProductsByName } = require('./lib/repository');
 
 const app = express();
 const port = process.env.PORT || 8080;
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 
 // Carregar configurações do serviço UAA
 xsenv.loadEnv();
@@ -23,6 +25,20 @@ function checkReadScope(req, res, next) {
     res.status(403).end('Forbidden');
   }
 }
+
+app.put('/callback/v1.0/tenants/*', function (req, res) {
+  var consumerSubdomain = req.body.subscribedSubdomain;
+  var tenantAppURL = "https:\/\/" + consumerSubdomain + "-approuter-product-list-ap25." + "cfapps.br10.hana.ondemand.com/products";
+  res.status(200).send(tenantAppURL);
+  });
+
+app.delete('/callback/v1.0/tenants/*', function (req, res) {
+  var consumerSubdomain = req.body.subscribedSubdomain;
+  var tenantAppURL = "https:\/\/" + consumerSubdomain + "-approuter-product-list-ap25." + "cfapps.br10.hana.ondemand.com/products";
+  res.status(200).send(tenantAppURL);
+});
+
+
 
 // Rotas
 app.get('/products', checkReadScope, getProducts);
